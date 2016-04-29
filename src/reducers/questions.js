@@ -5,12 +5,13 @@ export function askQuestion(state) {
 }
 
 export function askAgain(state) {
-  return state.set('answered', false).set('inputSize', 10)
+  return state.set('answered', false).set('inputSize', 10).set('currentInput', '')
 
 }
 
-export function changeInputSize(state, newSize) {
-  return newSize > 8  ? state.set('inputSize', newSize + 2) : state
+export function changeInput(state, input) {
+  const nextSize = input.length > 8  ? state.set('inputSize', input.length + 2) : state
+  return nextSize.set('currentInput', input)
 }
 
 

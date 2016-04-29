@@ -10,9 +10,9 @@ export function askAgain() {
   }
 }
 
-export function changeInputSize(newSize) {
+export function changeInput(input) {
   return {
     type: 'CHANGE_INPUT_SIZE',
-    size: newSize
+    input: input
   }
 }
