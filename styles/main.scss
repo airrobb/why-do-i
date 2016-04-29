@@ -1,0 +1,163 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+@mixin flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+   -webkit-align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+
+body {
+  background: black;
+  font-family: 'Montserrat';
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+#app {
+  height: 100%;
+  display: block;
+}
+
+.container {
+  max-width:1070px;
+  margin: auto;
+  height: 100%;
+  @include flex;
+}
+
+.question {
+  width: 100%;
+  min-width:100%;
+  text-align: center;
+  color: white;
+}
+.answer-block {
+  width: 100%;
+min-width:100%;
+  text-align: center;
+  color: white;
+  font-size: 5rem;
+  button {
+    background: white;
+    color: black;
+    border-radius: 0;
+    border: none;
+    font-family: 'Montserrat';
+    padding: 10px 25px;
+    font-size: 1rem;
+    margin-top: 45px;
+    text-transform: uppercase;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.placeholder {
+  width: 100%;
+  min-width:100%;
+  height: 180px;
+  display: block;
+}
+
+#care {
+margin: auto;
+text-align: center;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-family: 'Montserrat';
+  color: white;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  box-shadow: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.amazon {
+  text-align: right;
+  position: fixed;
+  bottom: 15px;
+  right: 25px;
+  font-size: 1rem;
+  text-transform: none;
+  color: white;
+  .row {
+    width: 100%;
+    clear: both;
+  }
+  .image-wrapper {
+    float: right;
+    width: 100px;
+    img {
+      max-width: 100%;
+    }
+  }
+  .buy-it {
+    padding-top: 5px;
+    float: right;
+    a {
+      color: white;
+      &:visited {
+        color: white;
+      }
+    }
+  }
+
+}
+
+.spacer {
+  max-height: 180px;
+  overflow: hidden;
+}
+
+
+.answer-enter {
+    opacity: 0;
+
+}
+.answer-enter.answer-enter-active {
+	opacity: 1;
+	transition-property: opacity;
+	transition-duration: 1000ms;
+	transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+}
+.answer-leave {
+  &.placeholder {
+    height: 0 !important;
+  }
+	opacity: 1;
+  height: 0;
+  display: none;
+}
+.answer-leave.answer-leave-active {
+  &.placeholder {
+    height: 0 !important;
+  }
+  height: 0;
+  display: none;
+	opacity: 0;
+
+}
+
+@media(max-width: 500px) {
+  body, #care {
+    font-size: 1.3rem;
+    border-radius: none !important;
+  }
+  .container {
+    display: block;
+    padding-top: 50px;
+  }
+  .answer {
+    font-size: 3rem;
+  }
+}
