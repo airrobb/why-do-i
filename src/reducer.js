@@ -12,7 +12,6 @@ const initialState = Map({
 })
 
 export default function(state = initialState, action) {
-  console.log(state.get('askCount'))
   switch(action.type) {
     case 'ASK_QUESTION':
       return askQuestion(state)

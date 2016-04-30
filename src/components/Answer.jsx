@@ -12,13 +12,16 @@ export default class Answer extends Component {
     document.getElementById('ask-again').focus()
   }
   render() {
+    const { askMessage } = this.props
     return (
       <div className="answer-block">
         <div className="answer">
           Your Ego
         </div>
         <div className="ask-again">
-          <button id="ask-again" onClick={this.handleAskAgain.bind(this)}>{this.props.askMessage}</button>
+          <button id="ask-again" onClick={this.handleAskAgain.bind(this)}>
+            {askMessage}
+          </button>
         </div>
       </div>
     )
