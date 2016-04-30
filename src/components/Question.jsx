@@ -9,7 +9,7 @@ export default class Question extends Component {
   }
   questionSubmit(e) {
     e.preventDefault()
-    this.props.questionCallback()
+    this.props.askQuestion()
   }
 
   render() {
@@ -17,7 +17,14 @@ export default class Question extends Component {
       <form className="question" onSubmit={this.questionSubmit.bind(this)}>
         <div className="question-text">
           Why the fuck do I care about &nbsp;
-          <input onChange={this.resizeInput.bind(this)} size={this.props.inputSize} value={this.props.currentInput} ref="care" name="care" id="care"  autoComplete="off"/>&nbsp; so much?
+          <input onChange={this.resizeInput.bind(this)}
+                 size={this.props.inputSize}
+                 value={this.props.currentInput}
+                 ref="care"
+                 name="care"
+                 id="care"
+                 autoComplete="off"/>
+          &nbsp; so much?
         </div>
       </form>
     )

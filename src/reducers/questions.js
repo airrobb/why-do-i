@@ -10,7 +10,7 @@ export function askAgain(state) {
 }
 
 export function changeInput(state, input) {
-  const nextSize = input.length > 8  ? state.set('inputSize', input.length + 2) : state
+  const nextSize = input.length > 8  ? state.set('inputSize', input.length + 3) : state.set('inputSize', 10)
   return nextSize.set('currentInput', input)
 }
 

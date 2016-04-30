@@ -13,31 +13,29 @@ export class App extends Component {
   componentDidMount() {
     document.getElementById('care').focus()
   }
-  inputChange(input) {
+  inputChangeCallback(input) {
     this.props.changeInput(input)
   }
-  questionCallback() {
+  askQuestionCallback() {
     this.props.askQuestion()
   }
   askAgainCallback(){
     this.props.askAgain()
-  }
-  askAgain() {
-    this.props.askAgain()
     document.getElementById('care').focus()
   }
 
+
   render() {
     const transitionGroup = this.props.answered ? [
-      <Answer key="answer" askMessage={this.props.askMessage} askAgain={this.askAgain.bind(this)} />
+      <Answer key="answer" askMessage={this.props.askMessage} askAgain={this.askAgainCallback.bind(this)} />
       ,<Book key="book"/>] :  <div key="placeholder" className="placeholder"></div>
       return (
         <div className="container">
           <div className="align-block">
             <Question currentInput={this.props.currentInput}
                   inputSize={this.props.inputSize}
-                  inputChange={this.inputChange.bind(this)}
-                  questionCallback={this.questionCallback.bind(this)}
+                  inputChange={this.inputChangeCallback.bind(this)}
+                  askQuestion={this.askQuestionCallback.bind(this)}
                   askAgainCallback={this.askAgainCallback.bind(this)}/>
           <div className="spacer">
             <ReactCSSTransitionGroup transitionName="answer" transitionEnterTimeout={1000} transitionLeaveTimeout={1}>
