@@ -5,7 +5,8 @@ export function askQuestion(state) {
 }
 
 export function askAgain(state) {
-  return state.set('answered', false).set('inputSize', 10).set('currentInput', '')
+  return state.set('answered', false)
+              .set('inputSize', 10).set('currentInput', '')
 
 }
 

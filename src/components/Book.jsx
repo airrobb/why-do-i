@@ -15,7 +15,11 @@ export default class Book extends Component {
             </div>
           </div>
         <div className="row">
-          <div className="buy-it"><a href="http://www.amazon.com/Ego-Enemy-Ryan-Holiday/dp/1591847818/?tag=ryanholnet-20">Buy</a> the book</div>
+          <div className="buy-it">
+            <a href="http://www.amazon.com/Ego-Enemy-Ryan-Holiday/dp/1591847818/?tag=ryanholnet-20">
+              Buy
+            </a> the book
+          </div>
         </div>
       </div>
     )
