@@ -19,16 +19,15 @@ export class App extends Component {
   askQuestionCallback() {
     this.props.askQuestion()
   }
-  askAgainCallback(){
-    this.props.askAgain()
-    document.getElementById('care').focus()
+  disagreeCallback(){
+    this.props.disagree()
   }
 
 
   render() {
-    const { answered, inputSize, askMessage, currentInput } = this.props
+    const { answered, inputSize, askMessage, currentInput, disagreed } = this.props
     const transitionGroup = answered ? [
-      <Answer key="answer" askMessage={askMessage} askAgain={this.askAgainCallback.bind(this)} />
+      <Answer key="answer" disagreed={disagreed} askMessage={askMessage} disagree={this.disagreeCallback.bind(this)} />
       ,<Book key="book"/>] :  <div key="placeholder" className="placeholder"></div>
       return (
         <div className="container">
@@ -37,10 +36,10 @@ export class App extends Component {
                   inputSize={inputSize}
                   inputChange={this.inputChangeCallback.bind(this)}
                   askQuestion={this.askQuestionCallback.bind(this)}
-                  askAgainCallback={this.askAgainCallback.bind(this)}/>
+                  />
           <div className="spacer">
             <ReactCSSTransitionGroup
-              transitionName="answer" 
+              transitionName="answer"
               transitionEnterTimeout={1000}
               transitionLeaveTimeout={1}>
               { transitionGroup }
@@ -56,6 +55,7 @@ export class App extends Component {
 function mapStateToProps(state) {
   return {
     answered: state.get('answered'),
+    disagreed: state.get('disagreed'),
     inputSize: state.get('inputSize'),
     askMessage: state.get('askMessage'),
     currentInput: state.get('currentInput')

@@ -4,22 +4,19 @@ export default class Answer extends Component {
   constructor(props) {
     super(props)
   }
-  handleAskAgain(e){
+  handleDisagree(e){
     e.preventDefault()
-    this.props.askAgain()
-  }
-  componentDidMount() {
-    document.getElementById('ask-again').focus()
+    this.props.disagree()
   }
   render() {
-    const { askMessage } = this.props
+    const { askMessage, disagreed} = this.props
     return (
       <div className="answer-block">
         <div className="answer">
-          Your Ego
+          { disagreed ? 'Definitely your ego' : 'Your ego'}
         </div>
-        <div className="ask-again">
-          <button id="ask-again" onClick={this.handleAskAgain.bind(this)}>
+        <div className="ask-again" style={{visibility: disagreed ? 'hidden' : 'visible'}}>
+          <button id="ask-again" onClick={this.handleDisagree.bind(this)}>
             {askMessage}
           </button>
         </div>

@@ -1,12 +1,12 @@
-export function askQuestion() {
+export function disagree() {
   return {
-    type: 'ASK_QUESTION'
+    type: 'DISAGREE'
   }
 }
 
-export function askAgain() {
+export function askQuestion() {
   return {
-    type: 'ASK_AGAIN'
+    type: 'ASK_QUESTION'
   }
 }
 
