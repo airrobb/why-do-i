@@ -29,6 +29,7 @@
     "chai-immutable": "^1.5.3",
     "css-loader": "^0.23.1",
     "envify": "^1.2.1",
+    "envify-loader": "^0.1.0",
     "enzyme": "^2.2.0",
     "jsdom": "^8.0.2",
     "mocha": "^2.4.5",

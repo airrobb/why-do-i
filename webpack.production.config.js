@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: [
@@ -9,13 +10,15 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'babel'
+      loader: 'envify-loader!babel'
     },
     {
       test: /\.scss$/,
-      loader: 'style!css!sass'
-    }
-  ]},
+      loader: ExtractTextPlugin.extract(
+        "style",
+        "css!sass")
+     }]
+  },
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
@@ -29,5 +32,8 @@ module.exports = {
   },
   sassLoader: {
      includePaths: [path.resolve(__dirname, "./styles")]
-   }
+   },
+   plugins: [
+    new ExtractTextPlugin("app.css")
+ ]
 }

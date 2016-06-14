@@ -4,7 +4,7 @@ import { Map, List } from 'immutable'
 const initialState = Map({
   answered: false,
   disagreed: false,
-  askMessage: 'I Disagree',
+  askMessage: 'Disagree?',
   inputSize: 10,
   currentInput: '',
 })
